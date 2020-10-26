@@ -1,0 +1,56 @@
+.Navbar{
+  display: flex;
+  background-color: teal;
+  flex-wrap: wrap;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+.link:hover{
+  color: rgb(63, 62, 62);
+}
+
+.logo{
+  align-self: center;
+  font-size: xx-large;
+  padding-left: 10%;
+  font-weight: 700;
+  flex-grow: 2;
+}
+
+@media screen and (max-width: 651px){
+  .logo{
+    padding-left: 0%;
+  }
+}
+
+.loginLinks {
+  font-size: large;
+  align-self: center;
+  padding-right: 10%;
+}
+
+.btn{
+  font-size: large;
+  font-weight: 700;
+  background-color: rgb(21, 211, 211);
+  border: none;
+  margin: 20px;
+  padding: 5px 10px 5px 10px;
+}
+.btn:hover{
+  color: rgb(39, 39, 39);
+  background-color: rgb(0, 255, 255);
+}
+.pageType{
+  width: 100%;
+  background-color: rgb(53, 54, 54);
+  color: white;
+  height: 50px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+}
