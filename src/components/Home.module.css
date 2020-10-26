@@ -1,0 +1,11 @@
+.series{
+  display: block;
+  height: 200px;
+  width: 200px;
+  background-color: brown;
+  margin-right: 100px;
+}
+.options{
+  padding: 100px;
+  display: flex;
+}
