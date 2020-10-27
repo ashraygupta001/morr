@@ -14,8 +14,8 @@ const Home = () => {
       <div>
         <Navbar PageType={"Home Page👋"} />
         <main className={styles.options}>
-        <Link to='/series'><img src={tv} alt="tv" className= {styles.series}/><p className= {styles.series}>popular series</p></Link>
-        <Link to='/movies'><img src={movie} alt="movie" className= {styles.series}/><p className= {styles.series}>popular series</p></Link>
+        <Link to='/series'><img src={tv} alt="tv" className= {styles.series}/><p className= {styles.series}>Popular Series</p></Link>
+        <Link to='/movies'><img src={movie} alt="movie" className= {styles.series}/><p className= {styles.series}>Popular Movies</p></Link>
         </main>
         <Footer />
       </div>
