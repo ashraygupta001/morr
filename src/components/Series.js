@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-//eslint-disable-next-line
 import styles from "./Series.module.css";
 import Navbar from "./navbar";
 import Footer from "./Footer";
@@ -14,25 +13,23 @@ const Series = () => {
     fetch(
       "https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json"
     )
-      .then((response) => response.json)
+      .then((response) => response.json())
       .then((Responsejson) => {
-        setSeries(Responsejson.entries);
+        const update = Responsejson.entries.sort((x, y) =>
+          x.title.toLowerCase() > y.title.toLowerCase()
+            ? 1
+            : y.title.toLowerCase() > x.title.toLowerCase()
+            ? -1
+            : 0
+        );
+        setSeries(update);
         setLoading(false);
-        debugger;
       })
       .catch((error) => {
         setErrormsg(error);
         setLoading(false);
       });
   }, []);
-
-  const Cards = () => {
-    series.forEach((show, index) => {
-      if(show.programType==="series" && show.releaseYear >= 2010) {
-        return <Card show={show} />
-      }
-    })
-  }
 
   return (
     <Fragment>
@@ -42,7 +39,14 @@ const Series = () => {
       ) : errormsg ? (
         <div>Error Happened</div>
       ) : (
-        <div className={styles.cards}>{Cards}</div>
+        <div className={styles.cards}>
+          {series.map((show, index) => {
+            if (show.programType === "series" && show.releaseYear >= 2010) {
+              return <Card show={show} key={index} />;
+            }
+            return null;
+          })}
+        </div>
       )}
       <Footer />
     </Fragment>

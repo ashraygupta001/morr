@@ -1,6 +1,10 @@
 .card{
   display: block;
   width: 200px;
+  height: 230px;
+  padding: 30px;
+} 
+.poster{
+  width: 200px;
   height: 200px;
-  padding: 20px;
 }
