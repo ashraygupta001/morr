@@ -22,7 +22,8 @@ const Series = () => {
             ? -1
             : 0
         );
-        setSeries(update);
+        const data = update.filter((series) => (series.programType==="series"&& series.releaseYear>=2010))
+        setSeries(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -41,7 +42,7 @@ const Series = () => {
       ) : (
         <div className={styles.cards}>
           {series.map((show, index) => {
-            if (show.programType === "series" && show.releaseYear >= 2010) {
+            if (show.programType === "series" && show.releaseYear >= 2010 && index<21) {
               return <Card show={show} key={index} />;
             }
             return null;

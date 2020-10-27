@@ -16,9 +16,16 @@ const Movies = () => {
       .then((response) => response.json())
       .then((Responsejson) => {
         const update = Responsejson.entries.sort((a, b) =>
-          a.title.toLowerCase() > b.title.toLowerCase() ? 1 : b.title.toLowerCase() > a.title.toLowerCase() ? -1 : 0
+          a.title.toLowerCase() > b.title.toLowerCase()
+            ? 1
+            : b.title.toLowerCase() > a.title.toLowerCase()
+            ? -1
+            : 0
         );
-        setMovies(update);
+        const data = update.filter(
+          (movie) => movie.programType === "movie" && movie.releaseYear >= 2010
+        );
+        setMovies(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -26,7 +33,6 @@ const Movies = () => {
         setLoading(false);
       });
   }, []);
-
 
   return (
     <Fragment>
@@ -38,7 +44,11 @@ const Movies = () => {
       ) : (
         <div className={styles.cards}>
           {Movies.map((show, index) => {
-            if (show.programType === "movie" && show.releaseYear >= 2010) {
+            if (
+              show.programType === "movie" &&
+              show.releaseYear >= 2010 &&
+              index < 21
+            ) {
               return <Card show={show} key={index} />;
             }
             return null;
